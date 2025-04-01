@@ -3,6 +3,8 @@
 //let { navEn, navZh, sidebarZh, sidebarEn } = require("./langulage-config.js");
 module.exports = {
     //extend: '@vuepress/theme-default',
+    base: '/', // 确保以斜杠开头和结尾
+    dest: 'dist', // 指定输出目录，默认是 'dist'
     title: "博客",
     description: '一套为开发者学习准备的基于 Vue 2.0 的移动端和 PC 端组件库', // 描述，是主页副标题
     //显示行号
