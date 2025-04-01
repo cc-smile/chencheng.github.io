@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>严格模式和非严格模式下，this指向区别 | 博客</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    
+    <meta name="description" content="一套为开发者学习准备的基于 Vue 2.0 的移动端和 PC 端组件库">
+    
+    <link rel="preload" href="/assets/css/0.styles.9f84806b.css" as="style"><link rel="preload" href="/assets/js/app.92d13eb2.js" as="script"><link rel="preload" href="/assets/js/2.7fb703d5.js" as="script"><link rel="preload" href="/assets/js/1.fa6b9fb9.js" as="script"><link rel="preload" href="/assets/js/29.b7938afe.js" as="script"><link rel="prefetch" href="/assets/js/10.6ccff0f3.js"><link rel="prefetch" href="/assets/js/11.ea1e0653.js"><link rel="prefetch" href="/assets/js/12.3837ba59.js"><link rel="prefetch" href="/assets/js/13.42eb3d10.js"><link rel="prefetch" href="/assets/js/14.be655f18.js"><link rel="prefetch" href="/assets/js/15.7d7701d0.js"><link rel="prefetch" href="/assets/js/16.9552a883.js"><link rel="prefetch" href="/assets/js/17.42faf055.js"><link rel="prefetch" href="/assets/js/18.90116347.js"><link rel="prefetch" href="/assets/js/19.0c80c29e.js"><link rel="prefetch" href="/assets/js/20.2ba5779b.js"><link rel="prefetch" href="/assets/js/21.d409e84f.js"><link rel="prefetch" href="/assets/js/22.f066ce17.js"><link rel="prefetch" href="/assets/js/23.84452bd1.js"><link rel="prefetch" href="/assets/js/24.6e62bcb9.js"><link rel="prefetch" href="/assets/js/25.ced1fdc0.js"><link rel="prefetch" href="/assets/js/26.f56bf9f9.js"><link rel="prefetch" href="/assets/js/27.350c6449.js"><link rel="prefetch" href="/assets/js/28.65d97874.js"><link rel="prefetch" href="/assets/js/3.6e74fa5f.js"><link rel="prefetch" href="/assets/js/30.6899bbf2.js"><link rel="prefetch" href="/assets/js/31.627288ab.js"><link rel="prefetch" href="/assets/js/32.f34939db.js"><link rel="prefetch" href="/assets/js/33.9916f2b1.js"><link rel="prefetch" href="/assets/js/34.bf8f350e.js"><link rel="prefetch" href="/assets/js/35.613cc9f0.js"><link rel="prefetch" href="/assets/js/36.40b5402a.js"><link rel="prefetch" href="/assets/js/37.07fdd744.js"><link rel="prefetch" href="/assets/js/4.2e183bf6.js"><link rel="prefetch" href="/assets/js/5.36f9e88c.js"><link rel="prefetch" href="/assets/js/6.e4f7680f.js"><link rel="prefetch" href="/assets/js/7.c480bdf8.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.a19b1ae9.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.9f84806b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/images/title.png" alt="博客" class="logo"> <span class="site-name can-hide">博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/javascript/" class="nav-link router-link-active">
+  JS
+</a></div><div class="nav-item"><a href="/css/" class="nav-link">
+  CSS
+</a></div><div class="nav-item"><a href="/node-js/NodeJS学习.html" class="nav-link">
+  NodeJS
+</a></div><div class="nav-item"><a href="/git/Git操作命令.html" class="nav-link">
+  Git
+</a></div><div class="nav-item"><a href="/shell/shell操作命令.html" class="nav-link">
+  Shell
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/javascript/" class="nav-link router-link-active">
+  JS
+</a></div><div class="nav-item"><a href="/css/" class="nav-link">
+  CSS
+</a></div><div class="nav-item"><a href="/node-js/NodeJS学习.html" class="nav-link">
+  NodeJS
+</a></div><div class="nav-item"><a href="/git/Git操作命令.html" class="nav-link">
+  Git
+</a></div><div class="nav-item"><a href="/shell/shell操作命令.html" class="nav-link">
+  Shell
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>首页</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading open"><span>JS</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/javascript/" aria-current="page" class="sidebar-link">JavaScript介绍</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/javascript/闭包.html" class="sidebar-link">闭包</a></li><li><a href="/javascript/继承.html" class="sidebar-link">继承</a></li><li><a href="/javascript/箭头函数与function区别.html" class="sidebar-link">函数箭头()=&gt;{}与functiond(){}的区别</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/javascript/严格模式和非严格模式下，this指向区别.html" class="active sidebar-link">严格模式和非严格模式下，this指向区别</a></li></ul></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>CSS</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>NodeJS</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>Git</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>Shell</span> <span class="arrow right"></span></p> <!----></section></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="严格模式和非严格模式下-this指向区别"><a href="#严格模式和非严格模式下-this指向区别" class="header-anchor">#</a> 严格模式和非严格模式下，this指向区别</h1> <p><strong>严格模式下，this指向会有所不同</strong></p> <p>普通函数调用，如果是函数直接调用，不通过对象调用，this指向undefined。</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token string">&quot;use strict&quot;</span>
+<span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// undefined</span>
+<span class="token punctuation">}</span>
+<span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p><strong>通过对象调用‌：如果函数是通过对象方法调用，<code>this</code>仍然指向调用该方法的对象。例如：</strong></p> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token string">&quot;use strict&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'Fitten Code'</span><span class="token punctuation">,</span>
+    <span class="token function-variable function">greet</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Hello, '</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+obj<span class="token punctuation">.</span><span class="token function">greet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 输出: Hello, Fitten Code</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><p><strong>非严格模式下的 <code>this</code>指向行为则有所不同</strong></p> <p>‌<strong>全局函数调用</strong>‌：在全局作用域中，<code>this</code>指向全局对象（在浏览器中是 <code>window</code>）。例如：</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Window</span>
+<span class="token punctuation">}</span>
+<span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p>‌<strong>对象方法调用</strong>‌：如果函数是作为对象的方法调用，<code>this</code>指向该对象。例如：</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'Fitten Code'</span><span class="token punctuation">,</span>
+    <span class="token function-variable function">greet</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Hello, '</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+obj<span class="token punctuation">.</span><span class="token function">greet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 输出: Hello, Fitten Code</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/javascript/箭头函数与function区别.html" class="prev">
+        函数箭头()=&gt;{}与functiond(){}的区别
+      </a></span> <span class="next"><a href="/css/">
+        CSS介绍
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.92d13eb2.js" defer></script><script src="/assets/js/2.7fb703d5.js" defer></script><script src="/assets/js/1.fa6b9fb9.js" defer></script><script src="/assets/js/29.b7938afe.js" defer></script>
+  </body>
+</html>
