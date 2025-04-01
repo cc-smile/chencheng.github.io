@@ -1,6 +1,0 @@
-
-{
-    "watch": [".vuepress"],
-    "ext": "js,vue",
-    "exec": "vuepress dev"
-  }
